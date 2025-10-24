@@ -1,97 +1,101 @@
 #include <stdio.h>
-#include <math.h>
 
-// ===== Variabel Global =====
-float a, b, c, d;
-float sisi1, sisi2, sisi3, sisi4;
-float tinggi;
-float luas, keliling;
+void NilaiAbsen() {
+    int absensi, max_absensi = 15;
+    double nilai_absensi;
+    
+    printf("masukkan jumlah absensi maksimal 15 : ");
+    scanf("%d", &absensi);
 
-void segitiga_sembarang() {
-    printf("Masukkan alas segitiga: ");
-    scanf("%f", &a);
-    printf("Masukkan tinggi segitiga: ");
-    scanf("%f", &tinggi);
-    printf("Masukkan sisi miring segitiga: ");
-    scanf("%f", &b);
-    luas = 0.5 * a * tinggi;
-    keliling = a + b + sqrt((a * a) + (tinggi * tinggi));
-    printf("Luas segitiga: %.2f\n", luas);
-    printf("Keliling segitiga: %.2f\n", keliling);
-}
-
-void belah_ketupat() {
-    printf("Masukkan panjang diagonal 1: ");
-    scanf("%f", &a);
-    printf("Masukkan panjang diagonal 2: ");
-    scanf("%f", &b);
-    printf("Masukkan panjang sisi belah ketupat: ");
-    scanf("%f", &sisi1);
-    luas = 0.5 * a * b;
-    keliling = 4 * sisi1;
-    printf("Luas belah ketupat: %.2f\n", luas);
-    printf("Keliling belah ketupat: %.2f\n", keliling);
-}
-
-void jajar_genjang() {
-    printf("Masukkan alas jajar genjang: ");
-    scanf("%f", &a);
-    printf("Masukkan tinggi jajar genjang: ");
-    scanf("%f", &tinggi);
-    printf("Masukkan panjang sisi miring jajar genjang: ");
-    scanf("%f", &b);
-    luas = a * tinggi;
-    keliling = 2 * (a + b);
-    printf("Luas jajar genjang: %.2f\n", luas);
-    printf("Keliling jajar genjang: %.2f\n", keliling);
-}
-void trapesium() {
-    printf("Masukkan panjang sisi sejajar 1: ");
-    scanf("%f", &a);
-    printf("Masukkan panjang sisi sejajar 2: ");
-    scanf("%f", &b);
-    printf("Masukkan tinggi trapesium: ");
-    scanf("%f", &tinggi);
-    printf("Masukkan panjang sisi miring 1: ");
-    scanf("%f", &sisi1);
-    printf("Masukkan panjang sisi miring 2: ");
-    scanf("%f", &sisi2);
-    luas = 0.5 * (a + b) * tinggi;
-    keliling = a + b + sisi1 + sisi2;
-    printf("Luas trapesium: %.2f\n", luas);
-    printf("Keliling trapesium: %.2f\n", keliling);
-}
-
-void choose_shape() {
-    int choice;
-    printf("Pilih bangun datar:\n");
-    printf("1. Segitiga Sembarang\n");
-    printf("2. Belah Ketupat\n");
-    printf("3. Jajar Genjang\n");
-    printf("4. Trapesium\n");
-    printf("Masukkan pilihan (1-4): ");
-    scanf("%d", &choice);
-
-    switch (choice) {
-        case 1:
-            segitiga_sembarang();
-            break;
-        case 2:
-            belah_ketupat();
-            break;
-        case 3:
-            jajar_genjang();
-            break;
-        case 4:
-            trapesium();
-            break;
-        default:
-            printf("Pilihan tidak valid.\n");
-            break;
+    //validasi agar tidak melebihi batas absensi
+    if (absensi > max_absensi) {
+        printf("Jumlah absensi melebihi batas maksimal %d\n", max_absensi);
+        return 1; // keluar dari program dengan kode kesalahan
     }
+    nilai_absensi = (double)absensi / max_absensi * 5/100;
+    printf("Nilai absensi: %.2f\n", nilai_absensi);
 }
-// ===== Fungsi Main =====
+
+void NilaiTugas() {
+    int tugas1, tugas2, tugas3;
+    double nilai_tugas;
+
+    //validasi input nilai tugas
+    if (tugas1 < 0 || tugas1 > 100 || tugas2 < 0 || tugas2 > 100 || tugas3 < 0 || tugas3 > 100) {
+        printf("Nilai tugas harus antara 0 hingga 100\n");
+        return 1; // keluar dari program dengan kode kesalahan
+    }
+
+    printf("Masukkan nilai tugas 1: ");
+    scanf("%d", &tugas1);
+    printf("Masukkan nilai tugas 2: ");
+    scanf("%d", &tugas2);
+    printf("Masukkan nilai tugas 3: ");
+    scanf("%d", &tugas3);
+
+    nilai_tugas = ((tugas1 + tugas2 + tugas3) / 3.0) * 20/100;
+    printf("Nilai tugas: %.2f\n", nilai_tugas);
+}
+
+void NilaiQuiz() {
+    //validasi input nilai quiz
+    if (quiz < 0 || quiz > 100) {
+        printf("Nilai quiz harus antara 0 hingga 100\n");
+        return 1; // keluar dari program dengan kode kesalahan
+    }
+
+    int quiz;
+    double nilai_quiz;
+    printf("Masukkan nilai quiz: ");
+    scanf("%d", &quiz);
+    nilai_quiz = quiz * 15/100;
+    printf("Nilai quiz: %.2f\n", nilai_quiz);
+
+}
+
+void NilaiUTS() {
+    //validasi input nilai UTS
+    if (uts < 0 || uts > 100) {
+        printf("Nilai UTS harus antara 0 hingga 100\n");
+        return 1; // keluar dari program dengan kode kesalahan
+    }
+
+    int uts;
+    double nilai_uts;
+    printf("Masukkan nilai UTS: ");
+    scanf("%d", &uts);
+    nilai_uts = uts * 30/100;
+    printf("Nilai UTS: %.2f\n", nilai_uts);
+}
+void Nilaiuas() {
+    //validasi input nilai UAS
+    if (uas < 0 || uas > 100) {
+        printf("Nilai UAS harus antara 0 hingga 100\n");
+       return 1; // keluar dari program dengan kode kesalahan
+    }
+
+    int uas;
+    double nilai_uas;
+    printf("Masukkan nilai UAS: ");
+    scanf("%d", &uas);
+    nilai_uas = uas * 30/100;
+    printf("Nilai UAS: %.2f\n", nilai_uas);
+}
+
+// Jumlah nilai
+void totalNilai() {
+    double absensi, tugas, quiz, uts, uas, total;
+    total = absensi + tugas + quiz + uts + uas;
+    printf("Total nilai akhir: %.2f\n", total);
+}
+
+
 int main() {
-    choose_shape(); // cukup panggil prosedur
+    NilaiAbsen();
+    NilaiTugas();
+    NilaiQuiz();
+    NilaiUTS();
+    NilaiUAS();
+    totalNilai();
     return 0;
 }
